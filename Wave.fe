@@ -2,15 +2,21 @@ use std::context::Context
 
 
 contract Wave {
-      
+     #create var to store data 
+     #Map type Key-Value (address,value), access the value thru its keys which is the address
    totalWaves: Map<address,u256>
   
 
+    #when the fn is called, add +1 to totalWaves var
+    #self used for activating the +1 whenever fn wave is called
+    #ctx: Context is used for gas and interaction with the blockchain and
+    #ctx.msg_sender() the caller is charged the gas fees and stores the totalWaves to its address
     pub fn wave(self,ctx:Context) {
        self.totalWaves[ctx.msg_sender()] += 1
       
     }
     
+    #gets the totalWaves from an address
     pub fn getTotalWaves(self, addr: address)-> u256{
         
         return self.totalWaves[addr]
