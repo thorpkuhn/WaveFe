@@ -13,6 +13,11 @@ const main = async () => {
   await waveTxn.wait();
 
   waveCount = await waveContract.getTotalWaves(owner.address);
+
+  waveTxn = await waveContract.connect(randomPerson).wave();
+  await waveTxn.wait();
+
+  waveCount = await waveContract.getTotalWaves(randomPerson.address);
   };
   
   const runMain = async () => {

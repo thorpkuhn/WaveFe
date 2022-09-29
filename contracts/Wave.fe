@@ -7,10 +7,7 @@ contract Wave {
 
    totalWaves: Map<address,u256>
    
-   pub  fn __innit__(ctx: Context) {
-        ctx.emit(GreetEvent(greeting: "I am a Fe smart contract!")) 
-    }
-
+  
    
     pub fn wave(self,ctx:Context) {
        self.totalWaves[ctx.msg_sender()] += 1

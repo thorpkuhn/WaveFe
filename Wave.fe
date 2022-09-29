@@ -5,7 +5,10 @@ contract Wave {
      #create var to store data 
      #Map type Key-Value (address,value), access the value thru its keys which is the address
    totalWaves: Map<address,u256>
-  
+   #pub  fn __innit__(ctx: Context) {
+    #    ctx.emit(GreetEvent(greeting: "I am a Fe smart contract!")) 
+    #}
+
 
     #when the fn is called, add +1 to totalWaves var
     #self used for activating the +1 whenever fn wave is called
