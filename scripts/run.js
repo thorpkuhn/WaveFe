@@ -17,8 +17,13 @@ const main = async () => {
   waveTxn = await waveContract.connect(randomPerson).wave();
   await waveTxn.wait();
 
-  waveCount = await waveContract.getTotalWaves(randomPerson.address);
+  waveCount = await waveContract.getTotalWaves(owner.address);
+   
+  //something is wrong with the way this is called, try to find it out
+  let numWaves =  waveContract.getTotalWaves(owner.address);
+  console.log("We have %d total waves!", numWaves);
   };
+ 
   
   const runMain = async () => {
     try {

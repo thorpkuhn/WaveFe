@@ -1,22 +1,27 @@
 use std::context::Context
 
- struct GreetEvent {
-    pub greeting: String<100>
-  }
+ 
 contract Wave {
 
    totalWaves: Map<address,u256>
    
+   event GreetEvent {
+   greeting: String<100>
+   }
+
+   pub  fn emit_greet(ctx: Context) {
+    emit GreetEvent(ctx, greeting: "I am a Fe smart contract!") 
+   }
+
   
-   
-    pub fn wave(self,ctx:Context) {
+    
+   pub fn wave(self,ctx:Context) {
        self.totalWaves[ctx.msg_sender()] += 1
-       
-    }
+        }
     
     
     
-    pub fn getTotalWaves(self, addr: address)-> u256{
+  pub fn getTotalWaves(self, addr: address)-> u256{
         
         return self.totalWaves[addr]
     }
